@@ -1,1 +1,25 @@
+- Новый кластер не создавал. Взял из предыдущего ДЗ.
+- Создал базу create database testdb;
+- Подключился к новой базе и создал схему
+- <img width="598" height="122" alt="image" src="https://github.com/user-attachments/assets/510a8e49-f5d6-4c0f-a999-a6b340c8c710" />
+- Создал таблицу t1 и строку в ней
+- <img width="468" height="185" alt="image" src="https://github.com/user-attachments/assets/06e3fb38-4214-47d6-8b4d-26d114ce3a1a" />
+- Создал роль readonly <img width="372" height="41" alt="image" src="https://github.com/user-attachments/assets/038c840e-030a-4752-842f-da7f89cf8e23" />
+- Дал роли права на подключение к БД <img width="611" height="37" alt="image" src="https://github.com/user-attachments/assets/6afc8398-d3a5-494c-af1b-595faa06c150" />
+- Дал роли права на подключение к схеме <img width="567" height="41" alt="image" src="https://github.com/user-attachments/assets/b6264bd6-6bf4-4e15-897c-056609febc1d" />
+- Дал роли права на селекты всех таблиц схемы <img width="687" height="40" alt="image" src="https://github.com/user-attachments/assets/31930171-7df5-4396-afce-94af0ef729f5" />
+- Создал пользователя <img width="601" height="38" alt="image" src="https://github.com/user-attachments/assets/387b9166-f54f-42ab-ac98-d5056f0dc0cf" />
+- Дал есму роль readonly <img width="437" height="40" alt="image" src="https://github.com/user-attachments/assets/c40dca41-a127-4d2e-8f41-5ffa83c16cfb" />
+- Зашел под новым пользователем. При запросе данных получил ошибку <img width="417" height="46" alt="image" src="https://github.com/user-attachments/assets/c7125861-b07a-4079-83dd-72c2f48de73b" />
+- Таблица не в схеме testnm, поэтому доступа нет. <img width="546" height="117" alt="image" src="https://github.com/user-attachments/assets/0c312b67-5d01-4c93-a500-e0d70c33081c" />
+- Перезашел под postgres, удалил таблицу t1. Пересоздал ее CREATE TABLE testnm.t1(c1 integer);  Добавил строку.
+- Зашел под testread. При запросе из таблицы снова ошибка доступа. Ответ взял из шпаргалки "потому что grant SELECT on all TABLEs in SCHEMA testnm TO readonly дал доступ только для существующих на тот момент времени таблиц а t1 пересоздавалась"
+- 
+ 
 
+
+
+
+
+
+- 
