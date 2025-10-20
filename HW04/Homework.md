@@ -13,13 +13,5 @@
 - Зашел под новым пользователем. При запросе данных получил ошибку <img width="417" height="46" alt="image" src="https://github.com/user-attachments/assets/c7125861-b07a-4079-83dd-72c2f48de73b" />
 - Таблица не в схеме testnm, поэтому доступа нет. <img width="546" height="117" alt="image" src="https://github.com/user-attachments/assets/0c312b67-5d01-4c93-a500-e0d70c33081c" />
 - Перезашел под postgres, удалил таблицу t1. Пересоздал ее CREATE TABLE testnm.t1(c1 integer);  Добавил строку.
-- Зашел под testread. При запросе из таблицы снова ошибка доступа. Ответ взял из шпаргалки "потому что grant SELECT on all TABLEs in SCHEMA testnm TO readonly дал доступ только для существующих на тот момент времени таблиц а t1 пересоздавалась"
-- 
- 
-
-
-
-
-
-
-- 
+- Зашел под testread. При запросе снова ошибка доступа. Ответ взял из шпаргалки "потому что grant SELECT on all TABLEs in SCHEMA testnm TO readonly дал доступ только для существующих на тот момент времени таблиц а t1 пересоздавалась"
+-  
