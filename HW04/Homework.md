@@ -14,4 +14,7 @@
 - Таблица не в схеме testnm, поэтому доступа нет. <img width="546" height="117" alt="image" src="https://github.com/user-attachments/assets/0c312b67-5d01-4c93-a500-e0d70c33081c" />
 - Перезашел под postgres, удалил таблицу t1. Пересоздал ее CREATE TABLE testnm.t1(c1 integer);  Добавил строку.
 - Зашел под testread. При запросе снова ошибка доступа. Ответ взял из шпаргалки "потому что grant SELECT on all TABLEs in SCHEMA testnm TO readonly дал доступ только для существующих на тот момент времени таблиц а t1 пересоздавалась"
--  
+- Зашел под postgres и перевыдал роли readonly права на селект.
+- <img width="954" height="389" alt="image" src="https://github.com/user-attachments/assets/41368979-6c79-439f-8753-f30a5230f988" />
+- 
+
