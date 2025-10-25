@@ -1,1 +1,21 @@
+- Создал машину в облаке Cloud.ru Advanced. Спецификация 2 vCPU (ядра выделенные, без переподписки) 8 GB ОЗУ.
+- Создали и инициализировали базу test <img width="827" height="341" alt="image" src="https://github.com/user-attachments/assets/895961b1-f071-4f02-a0de-86384e7b98ae" />
+- Запустили pgbench с настройками по умолчанию. Получили tps = 1455.656573 <img width="750" height="438" alt="image" src="https://github.com/user-attachments/assets/d2f8849d-0a61-4726-8648-0ed6ebc7208d" />
+- Отключил sync. Получил сильный прирост производительности <img width="730" height="418" alt="image" src="https://github.com/user-attachments/assets/5855e452-001a-4476-887f-53601d0f4a26" />
+- После этого поигрался с различными параметрами:
+   - synchronous_commit = off
+   - full_page_writes = off
+   - checkpoint_completion_target = 0.9
+   - random_page_cost = 2
+   - autovacuum = off
+   - max_worker_processes = 2
+   - max_parallel_workers_per_gather = 2
+   - max_parallel_workers = 1
+   - max_parallel_maintenance_workers = 1
+   - shared_buffers = 3GB
+   - effective_cache_size = 5GB
+- Прироста не получил. Заметил, что при отключении автовакуума производительность даже снизилась примерно на 100 транзакций.
+- Отключил логирование alter system set logging_collector = 'off';  alter system set log_statement = 'none'; Поднял перфоманс до  3185.433881 <img width="697" height="418" alt="image" src="https://github.com/user-attachments/assets/3ff773ee-1334-435b-9329-d2b52737e9ac" />
+
+- В итоге явный приростпроизводительности был виден только после отключения fsync, так как стал меньше задействоваться диск.  Также небольшой прирост дало отключение логирования.
 
