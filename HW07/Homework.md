@@ -4,7 +4,7 @@
 - Вернул параметр fsync = on. Запустил pgbench. Получил tps = 1030.085515. Отключили синхронные коммиты alter system set synchronous_commit = 'off'. Запустил pgbench еще раз. Получил tps = 1812.895520. Прирост за счет уменьшения времени подтверждения записи транзакции на диск. <img width="657" height="635" alt="image" src="https://github.com/user-attachments/assets/8f2f4569-3246-48e2-b453-cc7eaa727fff" />
 - Создали новый кластер с проверкой контрольной суммы страниц pg_createcluster --datadir=/var/lib/postgresql/18/new_cluster --start 18 new_cluster -- --data-checksums <img width="1587" height="560" alt="image" src="https://github.com/user-attachments/assets/0a9c662a-85e1-4c9f-9ea8-ce32d4f8e3f0" />
 - Создали простую таблицу new и вставили в нее пару строк.
-- Запросом определили, где она находится на диске <img width="411" height="127" alt="image" src="https://github.com/user-attachments/assets/c64aa74a-7b52-42e1-886a-5fcc70ad3b80" />
+- Запросом определили, где она находится на диске и добавили пару бит. <img width="411" height="127" alt="image" src="https://github.com/user-attachments/assets/c64aa74a-7b52-42e1-886a-5fcc70ad3b80" />
 - Запустили кластер. При попытке прочитать из таблицы получили ошибку <img width="713" height="47" alt="image" src="https://github.com/user-attachments/assets/55459173-0d65-4f5d-816a-740c3f4a3780" />
 - К сожалению применение параметра SET ignore_checksum_failure = on; не помогло. Все равно ошибка повреждения.
 
