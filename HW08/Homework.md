@@ -3,4 +3,4 @@
 - Записи о блокировках попали в лог <img width="1088" height="147" alt="image" src="https://github.com/user-attachments/assets/56c156a5-7b0d-46a2-81f2-cb6b1f8aa007" />
 - Создали взаимоблокировку  <img width="1903" height="275" alt="image" src="https://github.com/user-attachments/assets/2b340d92-8dc4-4d33-a041-2af64377c2ff" />
 - Записи о дедлоке и запросах его вызвавших остались в логах <img width="1261" height="226" alt="image" src="https://github.com/user-attachments/assets/467f20a7-0592-48e1-a5e1-42531eddafa6" />
-
+- Считаю, что в общем случае при запуске UPDATE без WHERE из 2 сессий дедлок вызвать не получится, так как 1 транзакция блокирует строки, и второй просто придется ждать выполнения первой.
