@@ -1,6 +1,6 @@
 - Создали тестовую БД Lego. Саму базу взяли отсюда: https://github.com/neondatabase-labs/postgres-sample-dbs?ysclid=mibjwjer85989084236
 - Сделали запрос explain analyze select * from lego_sets where year = '1976';
-- Полуили ответ: Seq Scan on lego_sets  (cost=0.00..253.91 rows=68 width=42) (actual time=0.011..0.767 rows=68 loops=1)
+- Получили ответ: Seq Scan on lego_sets  (cost=0.00..253.91 rows=68 width=42) (actual time=0.011..0.767 rows=68 loops=1)
   Filter: (year = 1976)
   Rows Removed by Filter: 11605
 Planning Time: 0.050 ms
