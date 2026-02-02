@@ -1,3 +1,40 @@
+## Установка и настройка ETCD кластера.
+   Установка: 
+```   
+  sudo apt -y install etcd-server
+  sudo apt -y install etcd-client
+  sudo systemctl stop etcd
+  sudo systemctl disable etcd
+  sudo rm -rf /var/lib/etcd/default --- удалить конфигурацию по умолчанию
+```
+Настраиваем конфигурационный файл /etc/default/etcd
+```
+ETCD_NAME="etcd1"
+ETCD_LISTEN_CLIENT_URLS="http://0.0.0.0:2379"
+ETCD_ADVERTISE_CLIENT_URLS="http://192.168.1.140:2379"
+ETCD_LISTEN_PEER_URLS="http://0.0.0.0:2380"
+ETCD_INITIAL_ADVERTISE_PEER_URLS="http://192.168.1.140:2380"
+ETCD_INITIAL_CLUSTER_TOKEN="etcd_cluster"
+ETCD_INITIAL_CLUSTER="etcd1=http://192.168.1.140:2380,etcd2=http://192.168.1.242:2380,etcd3=http://192.168.1.116:2380"
+ETCD_INITIAL_CLUSTER_STATE="new"
+ETCD_DATA_DIR="/var/lib/etcd"
+ETCD_ELECTION_TIMEOUT="10000"
+ETCD_HEARTBEAT_INTERVAL="2000"
+ETCD_INITIAL_ELECTION_TICK_ADVANCE="false"
+ETCD_ENABLE_V2="true"
+```
+Настраиваем автозапуск
+```
+systemctl daemon-reload
+systemctl enable etcd
+systemctl start etcd
+```
+Делаем то же самое на остальных 2 машинах и проверяем etcdctl endpoint status --cluster -w table  
+<img width="1528" height="146" alt="image" src="https://github.com/user-attachments/assets/af26c72f-577e-44a8-a0aa-4efc38db8ac3" />
+
+
+
+
 ## Настройка мониторинга
  ### Настройка node_exporter 
  ```
