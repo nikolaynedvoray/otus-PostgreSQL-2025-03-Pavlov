@@ -8,7 +8,7 @@ PostgreSQL 18 версии.
 ETCD version 3.4.30  
 Patroni 4.1.0
 Postgres_exporter 0.18.1  
-Prometheus 2.45.3
+Prometheus 2.45.3  
 Grafana в контейнере Docker
 
 ## Установка и настройка ETCD кластера.
