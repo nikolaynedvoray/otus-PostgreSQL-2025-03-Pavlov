@@ -11,6 +11,9 @@ Postgres_exporter 0.18.1
 Prometheus 2.45.3  
 Grafana в контейнере Docker
 
+<img width="679" height="476" alt="image" src="https://github.com/user-attachments/assets/1e01d2aa-fd69-44c0-966b-f7b329516350" />
+
+
 ## Установка и настройка ETCD кластера.
    Установка: 
 ```   
